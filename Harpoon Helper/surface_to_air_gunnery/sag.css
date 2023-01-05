@@ -1,0 +1,287 @@
+#flowchart {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	width: 1275px;
+	height: 1650px;
+	padding: 0px;
+	margin: 0px;
+	pointer-events: none;
+}
+
+/* engagement text box */
+#engagement {
+	left: 487px;
+	top: 25px;
+	text-align: left;
+	width: 600 px;
+	border-radius: 0px;
+	border-style: solid;
+}
+
+/*
+	text input boxes
+*/
+.textinput {
+	background-color: yellow;
+	height: 26px;
+	position: absolute;
+	border-style: none;
+	border-radius: 30px;
+	text-align: center;
+	font-size: 18px;
+}
+
+#startgunaastrength {
+	width: 72px;
+	left: 121px;
+	top: 183px;
+}
+
+/*
+	text output boxes
+*/
+.textoutput {
+	position: absolute;
+	text-align: center;
+	font-size: 18px;
+	height: 25px;
+	width: 43px;
+	top: 867px;
+	border-style: none;
+	background-color: white;
+}
+#finalgunaastrength {
+	left: 101px;
+}
+#finaltargetsignature {
+	left: 211px;
+}
+#finaltargetaltitude {
+	left: 323px;
+}
+#finaltargetspeedmodifiers {
+	left: 433px;
+}
+#finaltargetmaneuvers {
+	left: 543px;
+}
+#antiairgunhitchance {
+	left: 666px;
+}
+
+/*
+	target signature buttons
+*/
+.signaturebtns {
+	position: absolute;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#signaturelarge {
+	left: 110px;
+	top: 1081px;
+	width: 130px;
+}
+#signaturemedium {
+	left: 110px;
+	top: 1101px;
+	width: 130px;
+}
+#signaturesmall {
+	left: 110px;
+	top: 1121px;
+	width: 130px;
+}
+#signaturevsmall {
+	left: 110px;
+	top: 1141px;
+	width: 130px;
+}
+#signaturestealthy {
+	left: 110px;
+	top: 1161px;
+	width: 130px;
+}
+
+/*
+	target altitude buttons
+*/
+.altitudebtns {
+	position: absolute;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#altitudevlownossc {
+	left: 280px;
+	top: 1081px;
+	width: 160px;
+}
+#altitudevlowssc {
+	left: 280px;
+	top: 1101px;
+	width: 160px;
+}
+#altitudelow {
+	left: 280px;
+	top: 1121px;
+	width: 160px;
+}
+#altitudemedium {
+	left: 280px;
+	top: 1141px;
+	width: 160px;
+}
+#altitudehigh {
+	left: 280px;
+	top: 1161px;
+	width: 160px;
+}
+
+/*
+	speed buttons
+*/
+.speedbtns {
+	position: absolute;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#speedhovering {
+	left: 483px;
+	top: 1081px;
+	width: 265px;
+}
+#speedslow {
+	left: 483px;
+	top: 1101px;
+	width: 265px;
+}
+#speedsubsonic {
+	left: 483px;
+	top: 1121px;
+	width: 265px;
+}
+#speedtransonic {
+	left: 483px;
+	top: 1141px;
+	width: 265px;
+}
+#speedlowsupersonic {
+	left: 483px;
+	top: 1161px;
+	width: 265px;
+}
+#speedmedsupersonic {
+	left: 483px;
+	top: 1181px;
+	width: 265px;
+}
+#speedhighsupersonic {
+	left: 483px;
+	top: 1201px;
+	width: 265px;
+}
+#speedhypersonic {
+	left: 483px;
+	top: 1221px;
+	width: 265px;
+}
+
+/*
+	maneuver buttons
+*/
+.maneuverbtns {
+	position: absolute;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#maneuversnone {
+	left: 784px;
+	top: 1081px;
+	width: 254px;
+}
+#maneuversmissileterminal {
+	left: 784px;
+	top: 1101px;
+	width: 254px;
+}
+#maneuvershighdiving {
+	left: 784px;
+	top: 1121px;
+	width: 254px;
+}
+#maneuversdivergent {
+	left: 784px;
+	top: 1141px;
+	width: 254px;
+}
+#maneuverscrossingtarget {
+	left: 784px;
+	top: 1161px;
+	width: 254px;
+}
+#maneuversnonmaneuvering {
+	left: 784px;
+	top: 1181px;
+	width: 254px;
+}
+
+/*
+	gun aa buttons
+*/
+.localcontrolbtns, .localcontrolonlybtns, .raeodirectedbtns {
+	position: absolute;
+	width: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#localcontrolyes {
+	left: 168px;
+	top: 338px;
+	height: 39px;
+}
+#localcontrolonlyyes {
+	left: 207px;
+	top: 476px;
+	height: 39px;
+}
+#raeodirectedyes {
+	left: 207px;
+	top: 606px;
+	height: 39px;
+}
+#localcontrolno {
+	left: 99px;
+	top: 338px;
+	height: 31px;
+}
+#localcontrolonlyno {
+	left: 368px;
+	top: 476px;
+	height: 31px;
+}
+#raeodirectedno {
+	left: 368px;
+	top: 606px;
+	height: 31px;
+}
+
+/*
+	reset button
+*/
+#resetbtn {
+	position: absolute;
+	left: 760px;
+	top: 857px;
+	border-style: solid;
+	border-radius: 30px;
+	border-width: 7px;
+	border-color: rgb(58, 181, 75);
+	background-color: white;
+	height: 45px;
+	width: 90px;
+}

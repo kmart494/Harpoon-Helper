@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Surface-to-Air Gunnery</title>
+		<script src="sag.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="sag.css" />
+		<style type="text/css"></style>
+	</head>
+	<body onload="initialize()">
+		<div id="engagementtext">
+			<input type="text" id="engagement" class="textinput">
+		</div>
+		<div id="textboxes">
+			<input type="text" id="startgunaastrength" class="textinput" onkeyup="gunAaStrength.calc()">
+			<input type="text" id="finalgunaastrength" class="textoutput" disabled>
+			<input type="text" id="finaltargetsignature" class="textoutput" disabled>
+			<input type="text" id="finaltargetaltitude" class="textoutput" disabled>
+			<input type="text" id="finaltargetspeedmodifiers" class="textoutput" disabled>
+			<input type="text" id="finaltargetmaneuvers" class="textoutput" disabled>
+			<input type="text" id="antiairgunhitchance" class="textoutput" disabled>
+		</div>
+		<div id="gunaastrengthbuttons">
+			<input type="button" id="localcontrolyes" class="localcontrolbtns" onclick="gunAaStrength.clickButton('localcontrolyes')">
+			<input type="button" id="localcontrolno" class="localcontrolbtns" onclick="gunAaStrength.clickButton('localcontrolno')">
+			<input type="button" id="localcontrolonlyyes" class="localcontrolonlybtns" onclick="gunAaStrength.clickButton('localcontrolonlyyes')">
+			<input type="button" id="localcontrolonlyno" class="localcontrolonlybtns" onclick="gunAaStrength.clickButton('localcontrolonlyno')">
+			<input type="button" id="raeodirectedyes" class="raeodirectedbtns" onclick="gunAaStrength.clickButton('raeodirectedyes')">
+			<input type="button" id="raeodirectedno" class="raeodirectedbtns" onclick="gunAaStrength.clickButton('raeodirectedno')">
+		</div>
+		<div id="targetsignaturebuttons">
+			<input type="button" id="signaturelarge" class="signaturebtns" onclick="targetSignature.clickButton('signaturelarge')">
+			<input type="button" id="signaturemedium" class="signaturebtns" onclick="targetSignature.clickButton('signaturemedium')">
+			<input type="button" id="signaturesmall" class="signaturebtns" onclick="targetSignature.clickButton('signaturesmall')">
+			<input type="button" id="signaturevsmall" class="signaturebtns" onclick="targetSignature.clickButton('signaturevsmall')">
+			<input type="button" id="signaturestealthy" class="signaturebtns" onclick="targetSignature.clickButton('signaturestealthy')">
+		</div>
+		<div id="targetaltitudebuttons">
+			<input type="button" id="altitudevlownossc" class="altitudebtns" onclick="targetAltitude.clickButton('altitudevlownossc')">
+			<input type="button" id="altitudevlowssc" class="altitudebtns" onclick="targetAltitude.clickButton('altitudevlowssc')">
+			<input type="button" id="altitudelow" class="altitudebtns" onclick="targetAltitude.clickButton('altitudelow')">
+			<input type="button" id="altitudemedium" class="altitudebtns" onclick="targetAltitude.clickButton('altitudemedium')">
+			<input type="button" id="altitudehigh" class="altitudebtns" onclick="targetAltitude.clickButton('altitudehigh')">
+		</div>
+		<div id="targetspeedbuttons">
+			<input type="button" id="speedhovering" class="speedbtns" onclick="targetSpeed.clickButton('speedhovering')">
+			<input type="button" id="speedslow" class="speedbtns" onclick="targetSpeed.clickButton('speedslow')">
+			<input type="button" id="speedsubsonic" class="speedbtns" onclick="targetSpeed.clickButton('speedsubsonic')">
+			<input type="button" id="speedtransonic" class="speedbtns" onclick="targetSpeed.clickButton('speedtransonic')">
+			<input type="button" id="speedlowsupersonic" class="speedbtns" onclick="targetSpeed.clickButton('speedlowsupersonic')">
+			<input type="button" id="speedmedsupersonic" class="speedbtns" onclick="targetSpeed.clickButton('speedmedsupersonic')">
+			<input type="button" id="speedhighsupersonic" class="speedbtns" onclick="targetSpeed.clickButton('speedhighsupersonic')">
+			<input type="button" id="speedhypersonic" class="speedbtns" onclick="targetSpeed.clickButton('speedhypersonic')">
+		</div>
+		<div id="targetmaneuversbuttons">
+			<input type="button" id="maneuversnone" class="maneuverbtns" onclick="targetManeuvers.clickButton('maneuversnone')">
+			<input type="button" id="maneuversmissileterminal" class="maneuverbtns" onclick="targetManeuvers.clickButton('maneuversmissileterminal')">
+			<input type="button" id="maneuvershighdiving" class="maneuverbtns" onclick="targetManeuvers.clickButton('maneuvershighdiving')">
+			<input type="button" id="maneuversdivergent" class="maneuverbtns" onclick="targetManeuvers.clickButton('maneuversdivergent')">
+			<input type="button" id="maneuverscrossingtarget" class="maneuverbtns" onclick="targetManeuvers.clickButton('maneuverscrossingtarget')">
+			<input type="button" id="maneuversnonmaneuvering" class="maneuverbtns" onclick="targetManeuvers.clickButton('maneuversnonmaneuvering')">
+		</div>
+		<div id="resetbutton">
+			<input type="button" id="resetbtn" name="RESET" value="RESET" onclick="resetall()">
+		</div>
+		<div id="canvasdiv">
+			<canvas id="flowcanvas" height="1650" width="1275" style="border: 1px solid #000000;"></canvas>
+		</div>
+		<div id="flowchart">
+			<img src="Flowchart_Surf-to-Air_Gunnery_150.png">
+		</div>
+		<script type="text/javascript"></script>
+	</body>
+</html>
