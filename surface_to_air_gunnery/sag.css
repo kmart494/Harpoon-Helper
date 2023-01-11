@@ -1,0 +1,233 @@
+#flowchart {
+	position: absolute;
+	top: 9px;
+	left: 9px;
+	width: 2000px;
+	height: 1167px;
+	padding: 0px;
+	margin: 0px;
+	pointer-events: none;
+	/*background-color: red;*/
+}
+
+/* engagement text box */
+#engagement {
+	position: absolute;
+	left: 700px;
+	top: 20px;
+	text-align: left;
+	width: 600px;
+	border-radius: 0px;
+	border-style: solid;
+}
+
+/* text input boxes */
+.textinput {
+	background-color: yellow;
+	height: 26px;
+	position: absolute;
+	border-style: none;
+	border-radius: 30px;
+	text-align: center;
+	font-size: 18px;
+}
+#startgunaastrength {
+	width: 72px;
+	left: 260px;
+	top: 171px;
+}
+
+/* text output boxes */
+.textoutput {
+	position: absolute;
+	text-align: center;
+	font-size: 18px;
+	height: 24px;
+	width: 43px;
+	top: 715px;
+	border-style: none;
+	background-color: white;
+}
+#finalgunaastrength {
+	left: 434px;
+}
+#finaltargetsignature {
+	left: 544px;
+}
+#finaltargetaltitude {
+	left: 656px;
+}
+#finaltargetspeedmodifiers {
+	left: 766px;
+}
+#finaltargetmaneuvers {
+	left: 876px;
+}
+#antiairgunhitchance {
+	left: 998px;
+}
+
+/* target signature buttons */
+.signaturebtns {
+	position: absolute;
+	width: 130px;
+	height: 22px;
+	left: 441px;
+	background-color: yellow;
+	opacity: 0;
+}
+#signaturelarge {
+	top: 930px;
+}
+#signaturemedium {
+	top: 950px;
+}
+#signaturesmall {
+	top: 970px;
+}
+#signaturevsmall {
+	top: 990px;
+}
+#signaturestealthy {
+	top: 1010px;
+}
+
+/* target altitude buttons */
+.altitudebtns {
+	position: absolute;
+	height: 22px;
+	left: 615px;
+	width: 166px;
+	background-color: yellow;
+	opacity: 0;
+}
+#altitudevlownossc {
+	top: 930px;
+}
+#altitudevlowssc {
+	top: 950px;
+}
+#altitudelow {
+	top: 970px;
+}
+#altitudemedium {
+	top: 990px;
+}
+#altitudehigh {
+	top: 1010px;
+}
+
+/* speed buttons */
+.speedbtns {
+	position: absolute;
+	width: 265px;
+	height: 22px;
+	left: 816px;
+	background-color: yellow;
+	opacity: 0;
+}
+#speedhovering {
+	top: 929px;
+}
+#speedslow {
+	top: 949px;
+}
+#speedsubsonic {
+	top: 969px;
+}
+#speedtransonic {
+	top: 989px;
+}
+#speedlowsupersonic {
+	top: 1009px;
+}
+#speedmedsupersonic {
+	top: 1029px;
+}
+#speedhighsupersonic {
+	top: 1049px;
+}
+#speedhypersonic {
+	top: 1069px;
+}
+
+/* maneuver buttons */
+.maneuverbtns {
+	position: absolute;
+	width: 254px;
+	height: 22px;
+	left: 1119px;
+	background-color: yellow;
+	opacity: 0;
+}
+#maneuversnone {
+	top: 930px;
+}
+#maneuversmissileterminal {
+	top: 950px;
+}
+#maneuvershighdiving {
+	top: 970px;
+}
+#maneuversdivergent {
+	top: 990px;
+}
+#maneuverscrossingtarget {
+	top: 1010px;
+}
+#maneuversnonmaneuvering {
+	top: 1030px;
+}
+
+/* gun aa buttons */
+.localcontrolbtns, .localcontrolonlybtns, .raeodirectedbtns {
+	position: absolute;
+	width: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#localcontrolyes {
+	left: 500px;
+	top: 186px;
+	height: 39px;
+}
+#localcontrolonlyyes {
+	left: 540px;
+	top: 324px;
+	height: 39px;
+}
+#raeodirectedyes {
+	left: 540px;
+	top: 454px;
+	height: 39px;
+}
+#localcontrolno {
+	left: 431px;
+	top: 186px;
+	height: 31px;
+}
+#localcontrolonlyno {
+	left: 700px;
+	top: 324px;
+	height: 31px;
+}
+#raeodirectedno {
+	left: 700px;
+	top: 454px;
+	height: 31px;
+}
+
+/* reset button */
+#resetbtn {
+	position: absolute;
+	left: 974px;
+	top: 360px;
+	border-style: solid;
+	border-radius: 30px;
+	border-width: 7px;
+	border-color: rgb(58, 181, 75);
+	background-color: white;
+	height: 45px;
+	width: 90px;
+	
+}
