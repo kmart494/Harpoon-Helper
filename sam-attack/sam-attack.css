@@ -1,0 +1,464 @@
+#main {
+	width: 2000px;
+	height: 1167px;
+}
+
+/* text input boxes */
+.textinput {
+	position: absolute;
+	width: 72px;
+	height: 26px;
+	top: 142px;
+	border-style: none;
+	border-radius: 30px;
+	background-color: yellow;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/* text output boxes */
+.textoutput {
+	position: absolute;
+	width: 42px;
+	height: 24px;
+	top: 467px;
+	border-style: none;
+	background-color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/* flowchart background */
+#flowchart {
+	position: absolute;
+	left: 9px;
+	top: 9px;
+	width: 2000px;
+	height: 1167px;
+	padding: 0px;
+	margin: 0px;
+	pointer-events: none;
+}
+
+/* engagement text box */
+#engagement {
+	left: 700px;
+	top: 20px;
+	text-align: left;
+	width: 600px;
+	border-radius: 0px;
+	border-style: solid;
+}
+
+/* missile and target input boxes */
+#missileatartng {
+	left: 265px;
+}
+#targetmanrtng {
+	left: 381px;
+}
+
+/* modifier tally boxes */
+#finalmissileata {
+	left: 280px;
+}
+#finalcsmodifier {
+	left: 391px;
+}
+#finaltargetmanrtng {
+	left: 502px;
+}
+#finaltargetspeedmodifier {
+	left: 613px;
+}
+#finaltargetsize {
+	left: 724px;
+}
+#finalbearingratemodifier {
+	left: 835px;
+}
+#finalantiairmissilecountermeasures {
+	left: 945px;
+}
+#finalrangebandmodifier {
+	left: 1055px;
+}
+#finalseaskimmer {
+	left: 1166px;
+}
+#finalantiairmissileattack {
+	left: 1288px;
+}
+
+/* target maneuver rating buttons */
+.targetmanbuttons {
+	position: absolute;
+	background-color: yellow;
+	opacity: 0;
+}
+#targetevadingno {
+	left: 393px;
+	top: 276px;
+	width: 22px;
+	height: 31px;
+}
+#targetevadingyes {
+	left: 497px;
+	top: 228px;
+	width: 40px;
+	height: 22px;
+}
+
+/* combat system modifier buttons */
+.csmodifierbuttons {
+	position: absolute;
+	width: 40px;
+	height: 22px;
+	left: 286px;
+	background-color: yellow;
+	opacity: 0;
+}
+#shipcsgen2 {
+	top: 651px;
+}
+#shipcsgen3 {
+	top: 671px;
+}
+#shipcsgen4 {
+	top: 691px;
+}
+#shipcsgen56h {
+	top: 711px;
+}
+#shipcsgen56a {
+	top: 731px;
+}
+.cstargetbuttons {
+	position: absolute;
+	top: 604px;
+	width: 90px;
+	height: 42px;
+	background-color: yellow;
+	opacity: 0;
+}
+#missiletargetatamod {
+	left: 356px;
+}
+#aircrafttargetatamod {
+	left: 450px;
+}
+
+/* target speed modifier buttons */
+.targetspeedbuttons {
+	position: absolute;
+	left: 262px;
+	width: 328px;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#slow {
+	top: 856px;
+}
+#subsonic {
+	top: 876px;
+}
+#transonic {
+	top: 896px;
+}
+#lowsupers {
+	top: 916px;
+}
+#medsupers {
+	top: 936px;
+}
+#highsupers {
+	top: 956px;
+}
+#lowhypers {
+	top: 976px;
+}
+#medhypers {
+	top: 996px;
+}
+#highhypers {
+	top: 1016px;
+}
+#terminalman {
+	position: absolute;
+	left: 330px;
+	top: 1057px;
+	width: 200px;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+
+/* target size modifier buttons */
+.targetsizebuttons {
+	position: absolute;
+	left: 650px;
+	width: 230px;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#largemediumsmall {
+	top: 1022px;
+}
+#vsmall {
+	top: 1042px;
+}
+#stealthy {
+	top: 1062px;
+}
+
+/* bearing rate modifier buttons */
+.bearingratebuttons {
+	position: absolute;
+	left: 590px;
+	width: 245px;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#closing {
+	top: 207px;
+}
+#divergent {
+	top: 227px;
+}
+#crossing {
+	top: 247px;
+}
+#highdiving {
+	top: 267px;
+}
+
+/* range band modifier buttons */
+.rangebandbuttons {
+	position: absolute;
+	left: 900px;
+	width: 185px;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#pointdefense {
+	top: 210px;
+}
+#short {
+	top: 230px;
+}
+#medium1 {
+	top: 250px;
+}
+#medium2 {
+	top: 270px;
+}
+#long1 {
+	top: 290px;
+}
+#long2 {
+	top: 310px;
+}
+#verylong {
+	top: 330px;
+}
+#extreme {
+	top: 350px;
+}
+
+/* seaskimmer capability buttons */
+.seaskimmerbuttons {
+	position: absolute;
+	left: 1230px;
+	width: 185px;
+	height: 22px;
+	background-color: yellow;
+	opacity: 0;
+}
+#fullcapability {
+	top: 310px;
+}
+#partialcapability {
+	top: 330px;
+}
+#notcapable {
+	top: 350px;
+}
+.seaskimmeryesno {
+	position: absolute;
+	background-color: yellow;
+	opacity: 0;
+}
+#seaskimmeryes {
+	left: 1298px;
+	top: 182px;
+	width: 22px;
+	height: 40px;
+}
+#seaskimmerno {
+	left: 1196px;
+	top: 135px;
+	width: 31px;
+	height: 22px;
+}
+
+/* antiair missile countermeasures */
+#nojammerordecoy {
+	position: absolute;
+	left: 1202px;
+	top: 559px;
+	height: 22px;
+	width: 190px;
+	background-color: yellow;
+	opacity: 0;
+}
+.mslseekerjammer, .mslseekerdecoy, .mslseekerdecoyjammer {
+	position: absolute;
+	left: 1157px;
+	height: 22px;
+	width: 18px;
+	background-color: yellow;
+	opacity: 0;
+}
+#jammermissilegen1 {
+	top: 661px;
+}
+#jammermissilegen2 {
+	top: 681px;
+}
+#jammermissilegen3 {
+	top: 701px;
+}
+#jammermissilegen4 {
+	top: 721px;
+}
+#jammermissilegen5 {
+	top: 741px;
+}
+#decoymissilegen1 {
+	top: 848px;
+}
+#decoymissilegen2 {
+	top: 868px;
+}
+#decoymissilegen3 {
+	top: 888px;
+}
+#decoymissilegen4 {
+	top: 908px;
+}
+#decoymissilegen5 {
+	top: 928px;
+}
+#jdmissilegen1 {
+	top: 1034px;
+}
+#jdmissilegen2 {
+	top: 1054px;
+}
+#jdmissilegen3 {
+	top: 1074px;
+}
+#jdmissilegen4 {
+	top: 1094px;
+}
+#jdmissilegen5 {
+	top: 1114px;
+}
+.jammer {
+	position: absolute;
+	top: 614px;
+	height: 42px;
+	width: 41px;
+	background-color: yellow;
+	opacity: 0;
+}
+#gen1jammer {
+	left: 1207px;
+}
+#gen2jammer {
+	left: 1264px;
+}
+#gen3jammer {
+	left: 1320px;
+}
+#gen4jammer {
+	left: 1377px;
+}
+.decoy {
+	position: absolute;
+	top: 801px;
+	height: 42px;
+	width: 41px;
+	background-color: yellow;
+	opacity: 0;
+}
+#gen1decoy {
+	left: 1207px;
+}
+#gen2decoy {
+	left: 1264px;
+}
+#gen3decoy {
+	left: 1320px;
+}
+#gen4decoy {
+	left: 1377px;
+}
+.decoyjammer {
+	position: absolute;
+	top: 988px;
+	height: 42px;
+	width: 41px;
+	background-color: yellow;
+	opacity: 0;
+}
+#gen1decoyjammer {
+	left: 1207px;
+}
+#gen2decoyjammer {
+	left: 1264px;
+}
+#gen3decoyjammer {
+	left: 1320px;
+}
+#gen4decoyjammer {
+	left: 1377px;
+}
+.targetevadebuttons {
+	position: absolute;
+	background-color: yellow;
+	opacity: 0;
+}
+#targetevadeyes {
+	left: 942px;
+	top: 751px;
+	width: 22px;
+	height: 40px;
+}
+#targetevadeno {
+	left: 855px;
+	top: 790px;
+	width: 31px;
+	height: 22px;
+}
+
+/* reset button */
+#resetbtn {
+	position: absolute;
+	left: 1375px;
+	top: 420px;
+	height: 45px;
+	width: 90px;
+	font-weight: bold;
+	border-style: solid;
+	border-radius: 30px;
+	border-width: 7px;
+	border-color: rgb(58, 181, 75);
+	background-color: white;
+}
