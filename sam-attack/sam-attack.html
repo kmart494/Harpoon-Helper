@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAM Attack v1.0</title>
+<script src="sam-attack.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="sam-attack.css" />
+</head>
+<body>
+    <div id="main">
+		<!-- engagement text box -->
+		<input type="text" id="engagement" class="textinput" tabindex(1)>
+
+        <!-- missile ata rating -->
+        <input type="text" id="missileatartng" class="textinput" onkeyup="missileAtaRating.calc()" tabindex(2)>
+        <input type="text" id="finalmissileata" class="textoutput" disabled tabindex(-1)>
+
+        <!-- target maneuver rating -->
+        <input type="text" id="targetmanrtng" class="textinput" onkeyup="targetManeuverRating.calc()" tabindex(3)>
+        <input type="button" id="targetevadingno" class="targetmanbuttons" onclick="targetManeuverRating.clickButton('targetevadingno')" tabindex="-1">
+        <input type="button" id="targetevadingyes" class="targetmanbuttons" onclick="targetManeuverRating.clickButton('targetevadingyes')" tabindex="-1">
+        <input type="text" id="finaltargetmanrtng" class="textoutput" disabled tabindex(-1)>
+
+        <!-- combat system modifier -->
+        <input type="button" id="shipcsgen2" class="csmodifierbuttons" onclick="combatSystemModifier.clickButtonGen('shipcsgen2')" tabindex="-1">
+        <input type="button" id="shipcsgen3" class="csmodifierbuttons" onclick="combatSystemModifier.clickButtonGen('shipcsgen3')" tabindex="-1">
+        <input type="button" id="shipcsgen4" class="csmodifierbuttons" onclick="combatSystemModifier.clickButtonGen('shipcsgen4')" tabindex="-1">
+        <input type="button" id="shipcsgen56h" class="csmodifierbuttons" onclick="combatSystemModifier.clickButtonGen('shipcsgen56h')" tabindex="-1">
+        <input type="button" id="shipcsgen56a" class="csmodifierbuttons" onclick="combatSystemModifier.clickButtonGen('shipcsgen56a')" tabindex="-1">
+        <input type="button" id="missiletargetatamod" class="cstargetbuttons" onclick="combatSystemModifier.clickButtonTarget('missiletargetatamod')" tabindex="-1">
+        <input type="button" id="aircrafttargetatamod" class="cstargetbuttons" onclick="combatSystemModifier.clickButtonTarget('aircrafttargetatamod')" tabindex="-1">
+        <input type="text" id="finalcsmodifier" class="textoutput" disabled tabindex(-1)>
+
+        <!-- target speed modifier -->
+        <input type="button" id="slow" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('slow')" tabindex="-1">
+        <input type="button" id="subsonic" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('subsonic')" tabindex="-1">
+        <input type="button" id="transonic" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('transonic')" tabindex="-1">
+        <input type="button" id="lowsupers" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('lowsupers')" tabindex="-1">
+        <input type="button" id="medsupers" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('medsupers')" tabindex="-1">
+        <input type="button" id="highsupers" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('highsupers')" tabindex="-1">
+        <input type="button" id="lowhypers" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('lowhypers')" tabindex="-1">
+        <input type="button" id="medhypers" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('medhypers')" tabindex="-1">
+        <input type="button" id="highhypers" class="targetspeedbuttons" onclick="targetSpeedModifiers.clickSpeedButton('highhypers')" tabindex="-1">
+        <input type="button" id="terminalman" onclick="targetSpeedModifiers.clickTerminalButton()" tabindex="-1">
+        <input type="text" id="finaltargetspeedmodifier" class="textoutput" disabled tabindex(-1)>
+
+        <!-- target size -->
+        <input type="button" id="largemediumsmall" class="targetsizebuttons" onclick="targetSize.clickTargetSizeButton('largemediumsmall')" tabindex="-1">
+        <input type="button" id="vsmall" class="targetsizebuttons" onclick="targetSize.clickTargetSizeButton('vsmall')" tabindex="-1">
+        <input type="button" id="stealthy" class="targetsizebuttons" onclick="targetSize.clickTargetSizeButton('stealthy')" tabindex="-1">
+        <input type="text" id="finaltargetsize" class="textoutput" disabled tabindex(-1)>
+
+        <!-- bearing rate modifier -->
+        <input type="button" id="closing" class="bearingratebuttons" onclick="bearingRateModifier.clickBearingRateButton('closing')" tabindex="-1">
+        <input type="button" id="divergent" class="bearingratebuttons" onclick="bearingRateModifier.clickBearingRateButton('divergent')" tabindex="-1">
+        <input type="button" id="crossing" class="bearingratebuttons" onclick="bearingRateModifier.clickBearingRateButton('crossing')" tabindex="-1">
+        <input type="button" id="highdiving" class="bearingratebuttons" onclick="bearingRateModifier.clickBearingRateButton('highdiving')" tabindex="-1">
+        <input type="text" id="finalbearingratemodifier" class="textoutput" disabled tabindex(-1)>
+
+        <!-- antiair missile countermeasures -->
+        <input type="button" id="nojammerordecoy" class="nocountermeasures" onclick="antiairMissileCountermeasures.clickNoJammerDecoyButton()" tabindex="-1">
+        <input type="button" id="targetevadeyes" class="targetevadebuttons" onclick="antiairMissileCountermeasures.clickTargetEvadeButton('targetevadeyes')" tabindex="-1">
+        <input type="button" id="targetevadeno" class="targetevadebuttons" onclick="antiairMissileCountermeasures.clickTargetEvadeButton('targetevadeno')" tabindex="-1">
+        <input type="button" id="jammermissilegen1" class="mslseekerjammer" name="1" onclick="antiairMissileCountermeasures.clickSeekerVsJammerButton('jammermissilegen1')" tabindex="-1">
+        <input type="button" id="jammermissilegen2" class="mslseekerjammer" name="2" onclick="antiairMissileCountermeasures.clickSeekerVsJammerButton('jammermissilegen2')" tabindex="-1">
+        <input type="button" id="jammermissilegen3" class="mslseekerjammer" name="3" onclick="antiairMissileCountermeasures.clickSeekerVsJammerButton('jammermissilegen3')" tabindex="-1">
+        <input type="button" id="jammermissilegen4" class="mslseekerjammer" name="4" onclick="antiairMissileCountermeasures.clickSeekerVsJammerButton('jammermissilegen4')" tabindex="-1">
+        <input type="button" id="jammermissilegen5" class="mslseekerjammer" name="5" onclick="antiairMissileCountermeasures.clickSeekerVsJammerButton('jammermissilegen5')" tabindex="-1">
+        <input type="button" id="decoymissilegen1" class="mslseekerdecoy" name="1" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyButton('decoymissilegen1')" tabindex="-1">
+        <input type="button" id="decoymissilegen2" class="mslseekerdecoy" name="2" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyButton('decoymissilegen2')" tabindex="-1">
+        <input type="button" id="decoymissilegen3" class="mslseekerdecoy" name="3" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyButton('decoymissilegen3')" tabindex="-1">
+        <input type="button" id="decoymissilegen4" class="mslseekerdecoy" name="4" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyButton('decoymissilegen4')" tabindex="-1">
+        <input type="button" id="decoymissilegen5" class="mslseekerdecoy" name="5" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyButton('decoymissilegen5')" tabindex="-1">
+        <input type="button" id="jdmissilegen1" class="mslseekerdecoyjammer" name="1" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyJammerButton('jdmissilegen1')" tabindex="-1">
+        <input type="button" id="jdmissilegen2" class="mslseekerdecoyjammer" name="2" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyJammerButton('jdmissilegen2')" tabindex="-1">
+        <input type="button" id="jdmissilegen3" class="mslseekerdecoyjammer" name="3" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyJammerButton('jdmissilegen3')" tabindex="-1">
+        <input type="button" id="jdmissilegen4" class="mslseekerdecoyjammer" name="4" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyJammerButton('jdmissilegen4')" tabindex="-1">
+        <input type="button" id="jdmissilegen5" class="mslseekerdecoyjammer" name="5" onclick="antiairMissileCountermeasures.clickSeekerVsDecoyJammerButton('jdmissilegen5')" tabindex="-1">
+        <input type="button" id="gen1jammer" class="jammer" name="1" onclick="antiairMissileCountermeasures.clickJammerButton('gen1jammer')" tabindex="-1">
+        <input type="button" id="gen2jammer" class="jammer" name="2" onclick="antiairMissileCountermeasures.clickJammerButton('gen2jammer')" tabindex="-1">
+        <input type="button" id="gen3jammer" class="jammer" name="3" onclick="antiairMissileCountermeasures.clickJammerButton('gen3jammer')" tabindex="-1">
+        <input type="button" id="gen4jammer" class="jammer" name="4" onclick="antiairMissileCountermeasures.clickJammerButton('gen4jammer')" tabindex="-1">
+        <input type="button" id="gen1decoy" class="decoy" name="1" onclick="antiairMissileCountermeasures.clickDecoyButton('gen1decoy')" tabindex="-1">
+        <input type="button" id="gen2decoy" class="decoy" name="2" onclick="antiairMissileCountermeasures.clickDecoyButton('gen2decoy')" tabindex="-1">
+        <input type="button" id="gen3decoy" class="decoy" name="3" onclick="antiairMissileCountermeasures.clickDecoyButton('gen3decoy')" tabindex="-1">
+        <input type="button" id="gen4decoy" class="decoy" name="4" onclick="antiairMissileCountermeasures.clickDecoyButton('gen4decoy')" tabindex="-1">
+        <input type="button" id="gen1decoyjammer" class="decoyjammer" name="1" onclick="antiairMissileCountermeasures.clickDecoyJammerButton('gen1decoyjammer')" tabindex="-1">
+        <input type="button" id="gen2decoyjammer" class="decoyjammer" name="2" onclick="antiairMissileCountermeasures.clickDecoyJammerButton('gen2decoyjammer')" tabindex="-1">
+        <input type="button" id="gen3decoyjammer" class="decoyjammer" name="3" onclick="antiairMissileCountermeasures.clickDecoyJammerButton('gen3decoyjammer')" tabindex="-1">
+        <input type="button" id="gen4decoyjammer" class="decoyjammer" name="4" onclick="antiairMissileCountermeasures.clickDecoyJammerButton('gen4decoyjammer')" tabindex="-1">
+        <input type="text" id="finalantiairmissilecountermeasures" class="textoutput" disabled tabindex(-1)>
+
+        <!-- range band modifier -->
+        <input type="button" id="pointdefense" class="rangebandbuttons" onclick="rangeBandModifier.clickRangeBandButton('pointdefense')" tabindex="-1">
+        <input type="button" id="short" class="rangebandbuttons" onclick="rangeBandModifier.clickRangeBandButton('short')" tabindex="-1">
+        <input type="button" id="medium1" class="rangebandbuttons" onclick="rangeBandModifier.clickRangeBandButton('medium1')" tabindex="-1">
+        <input type="button" id="medium2" class="rangebandbuttons" onclick="rangeBandModifier.clickRangeBandButton('medium2')" tabindex="-1">
+        <input type="button" id="long1" class="rangebandbuttons" onclick="rangeBandModifier.clickRangeBandButton('long1')" tabindex="-1">
+        <input type="button" id="long2" class="rangebandbuttons" onclick="rangeBandModifier.clickRangeBandButton('long2')" tabindex="-1">
+        <input type="button" id="verylong" class="rangebandbuttons" onclick="rangeBandModifier.clickRangeBandButton('verylong')" tabindex="-1">
+        <input type="button" id="extreme" class="rangebandbuttons" onclick="rangeBandModifier.clickRangeBandButton('extreme')" tabindex="-1">
+        <input type="text" id="finalrangebandmodifier" class="textoutput" disabled tabindex(-1)>
+
+        <!-- sea skimmer capability -->
+        <input type="button" id="fullcapability" class="seaskimmerbuttons" onclick="seaskimmerCapability.clickSeaskimmerButton('fullcapability')" tabindex="-1">
+        <input type="button" id="partialcapability" class="seaskimmerbuttons" onclick="seaskimmerCapability.clickSeaskimmerButton('partialcapability')" tabindex="-1">
+        <input type="button" id="notcapable" class="seaskimmerbuttons" onclick="seaskimmerCapability.clickSeaskimmerButton('notcapable')" tabindex="-1">
+        <input type="button" id="seaskimmeryes" class="seaskimmeryesno" onclick="seaskimmerCapability.clickSeaskimmerYesNoButton('seaskimmeryes')" tabindex="-1">
+        <input type="button" id="seaskimmerno" class="seaskimmeryesno" onclick="seaskimmerCapability.clickSeaskimmerYesNoButton('seaskimmerno')" tabindex="-1">
+        <input type="text" id="finalseaskimmer" class="textoutput" disabled tabindex(-1)>
+
+        <!-- antiair missile attack -->
+        <input type="text" id="finalantiairmissileattack" class="textoutput" disabled tabindex(-1)>
+
+		<!-- reset button -->
+		<input type="button" id="resetbtn" name="RESET" value="RESET" onclick="resetall()" tabindex(-1)>
+
+        <!-- drawing canvas and flowchart -->
+        <canvas id="flowcanvas" height="1167" width="1600" style="border: 1px solid #000000;"></canvas>
+        <img id="flowchart" src="surface-to-air-attack2.png">
+    </div>
+</body>
+</html>
