@@ -37,7 +37,7 @@
 
 /* engagement text box */
 #engagement {
-	left: 397px;
+	left: 665px;
 	top: 25px;
 	text-align: left;
 	width: 600px;
@@ -189,7 +189,7 @@
 /* sam range text */
 #initialsamrange {
 	left: 519px;
-	top: 1339px;
+	top: 1340px;
 	width: 72px;
 }
 #finalsamrange {
@@ -232,7 +232,7 @@
 #resetbtn {
 	position: absolute;
 	left: 980px;
-	top: 1450px;
+	top: 720px;
 	border-style: solid;
 	border-radius: 30px;
 	border-width: 7px;

@@ -88,7 +88,7 @@ var combatSystem = {
 	csReactionModifier: 0,
 	csReactionDelay: 0,
 	targetSpeed: 0,
-	incrementMultiplier: 0,
+	speedPerIncrement: 0,
 	csGeneration: 0,
 	csReactionRoll: 0,
 	csModArray: [[4, 4, 4, 3, 2], [4, 4, 3, 2, 1], [4, 4, 2, 1, 1], [4, 3, 1, 1, 0], [3, 2, 1, 0, 0,], [2, 1, 0, 0, 0], [1, 1, 0, 0, 0], [1, 0, 0, 0, -1], [0, 0, 0, -1, -2], [0, 0, -1, -2, -2], [0, 0, -2, -2, -2]],
@@ -100,14 +100,14 @@ var combatSystem = {
 		this.csReactionModifier = 4;
 		this.csReactionDelay = 12;
 		this.targetSpeed = 0;
-		this.incrementMultiplier = 0;
+		this.speedPerIncrement = 0;
 		this.csGeneration = 0;
 		this.csReactionRoll = 0;
 		document.getElementById("csreactiontime").value = this.csReactionTime;
 		document.getElementById("csreactionmod").value = this.csReactionModifier;
 		document.getElementById("csreactiondelay").value = this.csReactionDelay;
 		document.getElementById("targetspeed").value = this.targetSpeed;
-		document.getElementById("incrementmultiplier").value = this.incrementMultiplier;
+		document.getElementById("incrementmultiplier").value = this.speedPerIncrement;
 		graphics.draw();
 	},
 
@@ -200,13 +200,13 @@ var combatSystem = {
 		let multiplier = Number(document.getElementById("targetspeed").value);
 		this.targetSpeed = multiplier;
 		this.csReactionDelay = this.csReactionTime + this.csReactionModifier;
-		this.incrementMultiplier = this.targetSpeed / 120;
-		this.incrementMultiplier = this.incrementMultiplier.toFixed(1);
-		let delay = this.csReactionDelay * this.incrementMultiplier;
+		this.speedPerIncrement = this.targetSpeed / 120;
+		this.speedPerIncrement = this.speedPerIncrement.toFixed(1);
+		let delay = this.csReactionDelay * this.speedPerIncrement;
 		delay = delay.toFixed(1);
 		reactionRange.calcReactionRange1(delay);
 		document.getElementById("csreactiondelay").value = this.csReactionDelay;
-		document.getElementById("incrementmultiplier").value = this.incrementMultiplier;
+		document.getElementById("incrementmultiplier").value = this.speedPerIncrement;
 	}
 };
 
@@ -335,6 +335,7 @@ var graphics = {
 		game.context.clearRect(0, 0, game.canvas.width, game.canvas.height);
 		this.drawCsReactionModifier();
 		this.drawEngaementRange();
+		this.drawInterceptRange();
 	},
 
 	drawCsReactionModifier: function() {
@@ -352,23 +353,86 @@ var graphics = {
 	},
 
 	drawEngaementRange: function() {
-		if (engagementRangeBar.engagementRange > 150) {
-			engagementRangeBar.engagementRange = 150;
-		}
+		if (engagementRangeBar.engagementRange > 144)
+			engagementRangeBar.engagementRange = 144;
 		
-		if (engagementRangeBar.engagementRange < 0) {
+		if (engagementRangeBar.engagementRange < 0) 
 			engagementRangeBar.engagementRange = 0;
-		}
 
 		let x = 1085;
-		let y = 1549;
-		let dy = 9.56;
-		y = y - engagementRangeBar.engagementRange * dy;
+		let y = 1559;
+		let dy = engagementRangeBar.engagementRange * 10;
+		y = y - dy;
+
+		game.context.beginPath();
+		game.context.moveTo(x, y - 10);
+		game.context.lineTo(x + 96, y - 10);
+		game.context.lineTo(x + 106, y);
+		game.context.lineTo(x + 96, y + 10);
+		game.context.lineTo(x, y + 10);
+		game.context.closePath();
+		game.context.fillStyle = "rgb(228, 228, 228)";
+		game.context.fill();
+
+		game.context.beginPath();
+		game.context.moveTo(x, y - 10);
+		game.context.lineTo(x + 96, y - 10);
+		game.context.lineTo(x + 106, y);
+		game.context.lineTo(x + 96, y + 10);
+		game.context.lineTo(x, y + 10);
+		game.context.closePath();
 		game.context.strokeStyle = "rgb(46, 49, 146)";
 		game.context.lineWidth = 3;
-		game.context.strokeRect(x, y, 106, 8);
+		game.context.stroke();
+	},
+
+	drawInterceptRange: function () {
+		let interceptRange = 0;
+		let rangeDifference = reactionRange.targetDistance - engagementRangeBar.engagementRange;
+
+		if (rangeDifference <= 0) {
+			interceptRange = reactionRange.targetDistance;
+		} else if (combatSystem.speedPerIncrement > 0) {
+			let increments = rangeDifference / combatSystem.speedPerIncrement;
+			increments = Math.ceil(increments);
+			interceptRange = reactionRange.targetDistance - (increments * combatSystem.speedPerIncrement);
+		}
+		
+		if (interceptRange > 144)
+			interceptRange = 144;
+
+		if (interceptRange < 0)
+			interceptRange = 0;
+
+		let x = 1085;
+		let y = 1559;
+		let dy = interceptRange * 10;
+		y = y - dy;
+
+		game.context.beginPath();
+		game.context.moveTo(x, y - 10);
+		game.context.lineTo(x + 96, y - 10);
+		game.context.lineTo(x + 106, y);
+		game.context.lineTo(x + 96, y + 10);
+		game.context.lineTo(x, y + 10);
+		game.context.closePath();
 		game.context.fillStyle = "rgb(228, 228, 228)";
-		game.context.fillRect(x + 1, y + 1, 106 - 2, 8 - 2);
+		game.context.fill();
+
+		game.context.beginPath();
+		game.context.moveTo(x, y - 10);
+		game.context.lineTo(x + 96, y - 10);
+		game.context.lineTo(x + 106, y);
+		game.context.lineTo(x + 96, y + 10);
+		game.context.lineTo(x, y + 10);
+		game.context.closePath();
+		game.context.strokeStyle = "rgb(237, 27, 36)";
+		game.context.lineWidth = 3;
+		game.context.stroke();
+
+		game.context.fillStyle = "rgb(237, 27, 36)";
+		game.context.font = "10pt Arial";
+		game.context.fillText("INTERCEPT", x + 5, y + 5);
 	}
 };
 
