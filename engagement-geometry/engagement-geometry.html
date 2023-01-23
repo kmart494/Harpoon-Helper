@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engagement Geometry v0.9</title>
+<script src="engagement-geometry.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="engagement-geometry.css" />
+</head>
+<body>
+    <div id="main">
+		<!-- engagement text box -->
+		<input type="text" id="engagement" class="textinput" tabindex="1">
+
+        <!-- text input boxes -->
+        <input type="text" id="targetbearing" class="textinput" onkeyup="" tabindex="2">
+        <input type="text" id="targetcourse" class="textinput" onkeyup="" tabindex="3">
+        <input type="text" id="targetspeed" class="textinput" onkeyup="" tabindex="4">
+        <input type="text" id="targetrange" class="textinput" onkeyup="" tabindex="5">
+
+        <!-- calculate button -->
+        <input type="button" id="calcbtn" name="CALCULATE" value="CALCULATE" onclick="engagementGeometry.calc()" tabindex="6">
+
+        <!-- reset button -->
+		<input type="button" id="resetbtn" name="RESET" value="RESET" onclick="resetall()" tabindex="-1">
+
+        <!-- drawing canvas and flowchart -->
+        <canvas id="flowcanvas" width="1050" height="609" style="border: 1px solid #000000;"></canvas>
+        <img id="flowchart" src="engagement-geometry-chart.png">
+    </div>
+</body>
+</html>

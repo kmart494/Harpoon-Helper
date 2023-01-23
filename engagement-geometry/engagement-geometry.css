@@ -1,0 +1,87 @@
+* {
+	font-weight: bold;
+}
+
+#main {
+	width: 1050px;
+	height: 609px;
+}
+
+/* engagement text box */
+#engagement {
+	left: 570px;
+	top: 25px;
+	text-align: left;
+	width: 460px;
+	border-radius: 0px;
+	border-style: solid;
+}
+
+/* text input boxes */
+.textinput {
+	position: absolute;
+	width: 72px;
+	height: 27px;
+	left: 177px;
+	border-style: none;
+	border-radius: 30px;
+	background-color: yellow;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+}
+#targetbearing {
+	top: 115px;
+}
+#targetcourse {
+	top: 170px;
+}
+#targetspeed {
+	top: 226px;
+}
+#targetrange {
+	left: 178px;
+	top: 282px;
+}
+
+/* flowchart background */
+#flowchart {
+	position: absolute;
+	left: 9px;
+	top: 9px;
+	width: 1050px;
+	height: 609px;
+	padding: 0px;
+	margin: 0px;
+	pointer-events: none;
+}
+
+/* calculate button */
+#calcbtn {
+	position: absolute;
+	left: 75px;
+	top: 380px;
+	height: 45px;
+	width: 140px;
+	font-weight: bold;
+	border-style: solid;
+	border-radius: 30px;
+	border-width: 7px;
+	border-color: rgb(58, 181, 75);
+	background-color: white;
+}
+
+/* reset button */
+#resetbtn {
+	position: absolute;
+	left: 100px;
+	top: 445px;
+	height: 45px;
+	width: 90px;
+	font-weight: bold;
+	border-style: solid;
+	border-radius: 30px;
+	border-width: 7px;
+	border-color: rgb(58, 181, 75);
+	background-color: white;
+}
