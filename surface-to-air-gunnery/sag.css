@@ -161,6 +161,30 @@
 }
 
 /* maneuver buttons */
+a:link {
+	color: blue;
+	text-decoration: none;
+}
+a:visited {
+	color: blue;
+	text-decoration: none;
+}
+a:hover {
+	color: red;
+	text-decoration: none;
+}
+#bearingratebutton {
+	position: absolute;
+	width: 170px;
+	height: 20px;
+	left: 960px;
+	top: 1075px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	text-align: center;
+	border-style: solid;
+	border-radius: 20px;
+}
 .maneuverbtns {
 	position: absolute;
 	width: 254px;
