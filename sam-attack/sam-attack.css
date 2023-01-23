@@ -1,3 +1,8 @@
+* {
+	font-weight: bold;
+	text-align: center;
+}
+
 #main {
 	width: 1609px;
 	height: 1167px;
@@ -12,8 +17,6 @@
 	border-style: none;
 	border-radius: 30px;
 	background-color: yellow;
-	text-align: center;
-	font-weight: bold;
 	font-size: 18px;
 }
 
@@ -25,8 +28,6 @@
 	top: 467px;
 	border-style: none;
 	background-color: white;
-	text-align: center;
-	font-weight: bold;
 	font-size: 18px;
 }
 
@@ -216,6 +217,30 @@
 }
 
 /* bearing rate modifier buttons */
+a:link {
+	color: blue;
+	text-decoration: none;
+}
+a:visited {
+	color: blue;
+	text-decoration: none;
+}
+a:hover {
+	color: red;
+	text-decoration: none;
+}
+
+#bearingratebutton {
+	position: absolute;
+	width: 170px;
+	height: 20px;
+	left: 390px;
+	top: 170px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	border-style: solid;
+	border-radius: 20px;
+}
 .bearingratebuttons {
 	position: absolute;
 	left: 390px;
