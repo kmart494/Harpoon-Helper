@@ -41,12 +41,14 @@ var targetInformation = {
 var engagementGeometry = {
 
 	computedRangeBand: 0,
+	speedRangeBandShift: 0,
 	aspectAngle: 0,
 	doCalc: false,
 
 	reset: function()
 	{
 		this.computedRangeBand = 0;
+		this.speedRangeBandShift = 0;
 		this.aspectAngle = 0;
 		this.doCalc = false;
 	},
@@ -59,8 +61,7 @@ var engagementGeometry = {
 		targetInformation.initialTargetRange = Number(document.getElementById("targetrange").value);
 		targetInformation.currentTargetBearing = targetInformation.initialTargetBearing;
 		targetInformation.currentTargetRange = targetInformation.initialTargetRange;
-		this.calcInitialTargetPosition();
-		this.calcActualRangeBand();
+
 		graphics.clearCanvas();
 		graphics.drawColumnHeaders();
 		this.doCalc = true;
@@ -82,13 +83,21 @@ var engagementGeometry = {
 		}
 
 		if (this.doCalc) {
+			this.calcSpeedRangeBandShift();
+
 			for (let i = 0; i <=6; i++) {
 				let incrementData = new Array(6);
 
 				// do movement
-				if (i != 0) {
+				if (i == 0) {
+					this.calcInitialTargetPosition();
+				} else {
 					this.calcTargetPositionFromMovement();
 				}
+				this.calcRangeFromShip();
+				this.calcCurrentRangeBand();
+				this.calcBearingFromShip();
+				this.calcTargetAspectAngle();
 
 				// increment number		
 				incrementData[0] = i; 
@@ -97,12 +106,10 @@ var engagementGeometry = {
 				if (i == 0) {
 					incrementData[1] = targetInformation.initialTargetBearing;
 				} else {
-					this.calcBearingFromShip();
 					incrementData[1] = targetInformation.currentTargetBearing; 
 				}
 				
 				// aspect angle
-				this.calcTargetAspectAngle();
 				incrementData[2] = this.aspectAngle
 
 				// geometry
@@ -112,7 +119,6 @@ var engagementGeometry = {
 				if (i == 0) {
 					incrementData[4] = targetInformation.initialTargetRange;
 				} else {
-					this.calcRangeFromShip();
 					targetInformation.currentTargetRange *= 10;
 					targetInformation.currentTargetRange = Math.round(targetInformation.currentTargetRange);
 					targetInformation.currentTargetRange /= 10;
@@ -120,7 +126,6 @@ var engagementGeometry = {
 				}
 				
 				// range band
-				this.calcActualRangeBand();
 				incrementData[5] = this.createRangeBandText(); 
 
 				graphics.drawincrementRowData(incrementData);
@@ -219,7 +224,7 @@ var engagementGeometry = {
 		return bandText;
 	},
 
-	calcActualRangeBand: function()
+	calcCurrentRangeBand: function()
 	{
 		if (targetInformation.currentTargetRange <= 4) {
 			targetInformation.currentRangeBand = 0;
@@ -242,32 +247,21 @@ var engagementGeometry = {
 
 	calcSpeedRangeBandShift: function()
 	{
-		let rangeShift = 0;
-		let aspectRangeBand = 0;
-
 		if (targetInformation.targetSpeed <= 750) {
-			rangeShift = 0;
+			this.speedRangeBandShift = 0;
 		} else if (targetInformation.targetSpeed <= 1525) {
-			rangeShift = 1;
+			this.speedRangeBandShift = 1;
 		} else if (targetInformation.targetSpeed <= 2300) {
-			rangeShift = 2;
+			this.speedRangeBandShift = 2;
 		} else if (targetInformation.targetSpeed <= 3075) {
-			rangeShift = 3;
+			this.speedRangeBandShift = 3;
 		} else if (targetInformation.targetSpeed <= 4100) {
-			rangeShift = 4;
+			this.speedRangeBandShift = 4;
 		} else if (targetInformation.targetSpeed <= 5125) {
-			rangeShift = 5;
+			this.speedRangeBandShift = 5;
 		} else {
-			rangeShift = 6;
+			this.speedRangeBandShift = 6;
 		} 
-
-		aspectRangeBand = targetInformation.currentRangeBand - rangeShift;
-
-		if (aspectRangeBand < 0) {
-			aspectRangeBand = 0;
-		}
-
-		return aspectRangeBand;
 	},
 
 	calcTargetAspectAngle: function()
@@ -299,10 +293,14 @@ var engagementGeometry = {
 		// geometry of 2 = crossing
 
 		let geometry = "";
-		let aspectRangeBand = this.calcSpeedRangeBandShift();
+		let aspectRangeBand = targetInformation.currentRangeBand - this.speedRangeBandShift;
+
+		if (aspectRangeBand < 0) {
+			aspectRangeBand = 0;
+		}
 
 		switch (aspectRangeBand) {
-			case 0: 
+			case 0: // point defense
 				if (this.aspectAngle <= 5) {
 					geometry = "Closing";
 				} else if (this.aspectAngle <= 15) {
@@ -311,7 +309,7 @@ var engagementGeometry = {
 					geometry = "Crossing";
 				}
 				break;
-			case 1:
+			case 1: // short
 				if (this.aspectAngle <= 10) {
 					geometry = "Closing";
 				} else if (this.aspectAngle <= 20) {
@@ -320,7 +318,7 @@ var engagementGeometry = {
 					geometry = "Crossing";
 				}
 				break;
-			case 2:
+			case 2: // medium 1
 				if (this.aspectAngle <= 20) {
 					geometry = "Closing";
 				} else if (this.aspectAngle <= 45) {
@@ -329,7 +327,7 @@ var engagementGeometry = {
 					geometry = "Crossing";
 				}
 				break;
-			case 3:
+			case 3: // medium 2
 				if (this.aspectAngle <= 45) {
 					geometry = "Closing";
 				} else if (this.aspectAngle <= 90) {
@@ -338,7 +336,7 @@ var engagementGeometry = {
 					geometry = "Crossing";
 				}
 				break;
-			case 4:
+			case 4: // long 1
 				if (this.aspectAngle <= 60) {
 					geometry = "Closing";
 				} else if (this.aspectAngle <= 90) {
@@ -347,9 +345,9 @@ var engagementGeometry = {
 					geometry = "Crossing";
 				}
 				break;
-			case 5:
-			case 6:
-			case 7:
+			case 5: // long 2
+			case 6: // very long
+			case 7: // extreme
 				geometry = "Closing";	
 		}
 		console.log(this.aspectAngle + ", " + aspectRangeBand);

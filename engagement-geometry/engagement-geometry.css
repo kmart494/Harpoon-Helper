@@ -4,7 +4,7 @@
 
 #main {
 	width: 1050px;
-	height: 609px;
+	height: 450px;
 }
 
 /* engagement text box */
@@ -50,7 +50,7 @@
 	left: 9px;
 	top: 9px;
 	width: 1050px;
-	height: 609px;
+	height: 450px;
 	padding: 0px;
 	margin: 0px;
 	pointer-events: none;
@@ -60,7 +60,7 @@
 #calcbtn {
 	position: absolute;
 	left: 75px;
-	top: 380px;
+	top: 342px;
 	height: 45px;
 	width: 140px;
 	font-weight: bold;
@@ -75,7 +75,7 @@
 #resetbtn {
 	position: absolute;
 	left: 100px;
-	top: 445px;
+	top: 400px;
 	height: 45px;
 	width: 90px;
 	font-weight: bold;
